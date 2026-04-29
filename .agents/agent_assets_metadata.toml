@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "6gb1aQJyEG4kHlJkkDilx"
+uri = "file://attached_assets/brain_foggy.png"
+type = "image"
+title = "foggy brain character"
+
+[[generated]]
+id = "mxAJqlox7OC2MlxA1ZGTv"
+uri = "file://attached_assets/brain_turbo.png"
+type = "image"
+title = "turbo lightning brain character"
+
+[[generated]]
+id = "9qepV26QqO5XuTWwtCR7X"
+uri = "file://attached_assets/brain_zen.png"
+type = "image"
+title = "zen meditating brain character"
+
+[[generated]]
+id = "hoDnewnxbU0wdfg3SlRTJ"
+uri = "file://attached_assets/brain_training.png"
+type = "image"
+title = "training dumbbell brain character"
