@@ -91,6 +91,17 @@
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes brain-swap {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  40% { transform: scale(0.6) rotate(-15deg); opacity: 0.3; }
+  60% { transform: scale(0.6) rotate(15deg); opacity: 0.3; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.spin-fast img {
+  animation: brain-swap 0.24s ease-in-out infinite;
+}
+
 .glow-button {
   animation: pulse-glow 2s ease-in-out infinite;
 }

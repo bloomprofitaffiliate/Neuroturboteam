@@ -188,9 +188,12 @@ export interface ScoreResult {
 }
 
 export function getResult(totalScore: number): ScoreResult {
-  const percentage = Math.round((totalScore / 60) * 100);
+  // Normalize against actual range (min 15, max 60) so results spread properly
+  const MIN_SCORE = 15;
+  const MAX_SCORE = 60;
+  const percentage = Math.round(((totalScore - MIN_SCORE) / (MAX_SCORE - MIN_SCORE)) * 100);
 
-  if (percentage >= 80) {
+  if (percentage >= 75) {
     return {
       title: "Neuro-Turbo",
       subtitle: "Your brain is in peak performance mode!",
@@ -202,7 +205,7 @@ export function getResult(totalScore: number): ScoreResult {
       ctaBody: "Your brain is performing above average, but there's a whole turbo boost waiting for you. This is what separates good from genuinely unstoppable.",
       scoreRange: `${percentage}`,
     };
-  } else if (percentage >= 60) {
+  } else if (percentage >= 50) {
     return {
       title: "Neuro-Zen",
       subtitle: "Solid brain, ready to level up!",
@@ -214,7 +217,7 @@ export function getResult(totalScore: number): ScoreResult {
       ctaBody: "You've got the zen, now it's time for the turbo. One level up and your brain becomes a completely different machine.",
       scoreRange: `${percentage}`,
     };
-  } else if (percentage >= 40) {
+  } else if (percentage >= 25) {
     return {
       title: "Neuro-Spirals",
       subtitle: "Your brain needs some TLC!",
