@@ -24,3 +24,33 @@ id = "hoDnewnxbU0wdfg3SlRTJ"
 uri = "file://attached_assets/brain_training.png"
 type = "image"
 title = "training dumbbell brain character"
+
+[[generated]]
+id = "VHrUy2hgbHzp9pE0Kddx3"
+uri = "file://attached_assets/brain_sleepy.png"
+type = "image"
+title = "sleepy brain character"
+
+[[generated]]
+id = "R39lkLFoLhDoSAfc3i1V0"
+uri = "file://attached_assets/brain_coffee.png"
+type = "image"
+title = "coffee brain character"
+
+[[generated]]
+id = "fGj2r-mJkwqTZRaqFFI70"
+uri = "file://attached_assets/brain_phone.png"
+type = "image"
+title = "phone addicted brain character"
+
+[[generated]]
+id = "955xhk3rQu21HkSjbQbEJ"
+uri = "file://attached_assets/brain_dreamy.png"
+type = "image"
+title = "dreamy procrastinating brain character"
+
+[[generated]]
+id = "6z8n-TevgJg1HvbalLX-T"
+uri = "file://attached_assets/brain_sharp.png"
+type = "image"
+title = "sharp confident brain character"

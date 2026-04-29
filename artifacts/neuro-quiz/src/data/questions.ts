@@ -1,15 +1,17 @@
+import type { MascotType } from "@/components/BrainMascot";
+
 export interface Question {
   id: number;
   text: string;
   options: { label: string; value: string; score: number }[];
-  mascot: "foggy" | "turbo" | "zen" | "training";
+  mascot: MascotType;
 }
 
 export const questions: Question[] = [
   {
     id: 1,
     text: "Does your brain feel like a supercomputer or a potato?",
-    mascot: "foggy",
+    mascot: "sharp",
     options: [
       { label: "Total supercomputer — firing on all cylinders!", value: "a", score: 4 },
       { label: "Decent laptop... maybe needs a reboot", value: "b", score: 3 },
@@ -42,7 +44,7 @@ export const questions: Question[] = [
   {
     id: 4,
     text: '3 PM energy: "Let\'s Go!" or "Where is the sofa?"',
-    mascot: "turbo",
+    mascot: "sleepy",
     options: [
       { label: "Let's Go! 3PM is prime time for me", value: "a", score: 4 },
       { label: "Still going but need a coffee assist", value: "b", score: 3 },
@@ -64,7 +66,7 @@ export const questions: Question[] = [
   {
     id: 6,
     text: "Sleep: Instant lights out or replaying 2012 conversations?",
-    mascot: "foggy",
+    mascot: "sleepy",
     options: [
       { label: "Out in 5 minutes, sleep like a rock", value: "a", score: 4 },
       { label: "Takes a bit but I get there", value: "b", score: 3 },
@@ -75,7 +77,7 @@ export const questions: Question[] = [
   {
     id: 7,
     text: 'Big dreams but brain says "Maybe tomorrow"?',
-    mascot: "training",
+    mascot: "dreamy",
     options: [
       { label: "I act on my ideas immediately", value: "a", score: 4 },
       { label: "I procrastinate a bit but get going", value: "b", score: 3 },
@@ -86,7 +88,7 @@ export const questions: Question[] = [
   {
     id: 8,
     text: "How much coffee is holding your personality together?",
-    mascot: "foggy",
+    mascot: "coffee",
     options: [
       { label: "Zero — I run on pure vitality", value: "a", score: 4 },
       { label: "1 cup, just for the ritual", value: "b", score: 3 },
@@ -119,7 +121,7 @@ export const questions: Question[] = [
   {
     id: 11,
     text: '"Jump out of bed" or "5 more snoozes"?',
-    mascot: "training",
+    mascot: "sleepy",
     options: [
       { label: "Jump out — mornings are my power hour", value: "a", score: 4 },
       { label: "One snooze, then I'm up", value: "b", score: 3 },
@@ -130,7 +132,7 @@ export const questions: Question[] = [
   {
     id: 12,
     text: "Be real: How much does your phone own your attention?",
-    mascot: "foggy",
+    mascot: "phone",
     options: [
       { label: "I own it — I use it intentionally", value: "a", score: 4 },
       { label: "We have a healthy relationship", value: "b", score: 3 },
@@ -152,7 +154,7 @@ export const questions: Question[] = [
   {
     id: 14,
     text: 'Snap decisions or "I\'ll decide in 3 years"?',
-    mascot: "turbo",
+    mascot: "sharp",
     options: [
       { label: "Snap — confident and fast", value: "a", score: 4 },
       { label: "I take reasonable time", value: "b", score: 3 },
