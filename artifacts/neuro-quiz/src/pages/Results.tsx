@@ -91,7 +91,7 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
             Your Brain Score reveals untapped potential. The right tools can completely transform your mental performance in 15 days.
           </p>
           <a
-            href="https://www.clickbank.com"
+            href="https://tinyurl.com/2kc2mta4"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-clickbank-cta"
