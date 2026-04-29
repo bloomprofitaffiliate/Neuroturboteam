@@ -114,29 +114,40 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
           </div>
           <p className="text-[hsl(228_20%_55%)] text-xs">Check your inbox — Day 1 is on its way!</p>
           <div className="space-y-2">
-            {allDays.map((item) => (
-              <div key={item.day} className="flex gap-3 items-start py-2 border-b border-[hsl(228_30%_18%)] last:border-0">
-                <div
-                  className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black mt-0.5"
-                  style={{ backgroundColor: "#FF660030", color: "#FF6600" }}
-                >
-                  {item.day}
+            {allDays.map((item) => {
+              const pelletColors = [
+                { bg: "#FF69B430", text: "#FF69B4" },
+                { bg: "#FF660030", text: "#FF6600" },
+                { bg: "#39FF1430", text: "#39FF14" },
+                { bg: "#FFE60030", text: "#FFE600" },
+                { bg: "#00B4FF30", text: "#00B4FF" },
+              ];
+              const pellet = pelletColors[(item.day - 1) % pelletColors.length];
+              return (
+                <div key={item.day} className="flex gap-3 items-start py-2 border-b border-[hsl(228_30%_18%)] last:border-0">
+                  <div
+                    className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black mt-0.5"
+                    style={{ backgroundColor: pellet.bg, color: pellet.text }}
+                  >
+                    {item.day}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[hsl(228_20%_50%)] text-xs font-bold uppercase tracking-wide">{item.goal}</p>
+                    <p className="text-[hsl(0_0%_82%)] text-sm font-semibold leading-snug">{item.subject}</p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <p className="text-[hsl(228_20%_50%)] text-xs font-bold uppercase tracking-wide">{item.goal}</p>
-                  <p className="text-[hsl(0_0%_82%)] text-sm font-semibold leading-snug">{item.subject}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         <button
           data-testid="button-retake"
           onClick={onRetake}
-          className="w-full border-2 border-[hsl(228_30%_25%)] text-[hsl(228_20%_65%)] hover:border-[#FF69B4]/50 hover:text-white font-bold text-base py-4 rounded-2xl transition-all duration-200"
+          className="w-full font-black text-base py-4 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style={{ background: "linear-gradient(135deg, #FF69B4, #FF6600)", color: "white" }}
         >
-          Retake the Quiz
+          🔄 Retake the Quiz
         </button>
       </div>
     </div>

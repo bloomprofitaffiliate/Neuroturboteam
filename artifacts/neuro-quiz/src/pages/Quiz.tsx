@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { questions } from "@/data/questions";
 import { BrainMascot } from "@/components/BrainMascot";
 
 interface QuizProps {
   onComplete: (answers: number[]) => void;
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 export function Quiz({ onComplete }: QuizProps) {
@@ -12,8 +21,12 @@ export function Quiz({ onComplete }: QuizProps) {
   const [selected, setSelected] = useState<string | null>(null);
   const [animating, setAnimating] = useState(false);
 
-  const question = questions[currentIndex];
-  const progress = ((currentIndex) / questions.length) * 100;
+  const shuffledQuestions = useMemo(() =>
+    shuffle(questions).map(q => ({ ...q, options: shuffle(q.options) })),
+  []);
+
+  const question = shuffledQuestions[currentIndex];
+  const progress = ((currentIndex) / shuffledQuestions.length) * 100;
 
   function handleSelect(value: string, score: number) {
     if (animating) return;
@@ -23,7 +36,7 @@ export function Quiz({ onComplete }: QuizProps) {
       const newAnswers = [...answers, score];
       setAnimating(true);
       setTimeout(() => {
-        if (currentIndex < questions.length - 1) {
+        if (currentIndex < shuffledQuestions.length - 1) {
           setAnswers(newAnswers);
           setCurrentIndex(currentIndex + 1);
           setSelected(null);
@@ -40,7 +53,7 @@ export function Quiz({ onComplete }: QuizProps) {
       <div className="max-w-md w-full space-y-6">
         <div className="space-y-2">
           <div className="flex justify-between text-sm font-semibold">
-            <span className="text-[hsl(228_20%_65%)]">Question {currentIndex + 1} of {questions.length}</span>
+            <span className="text-[hsl(228_20%_65%)]">Question {currentIndex + 1} of {shuffledQuestions.length}</span>
             <span className="text-[#B9F6CA]">{Math.round(progress)}% complete</span>
           </div>
           <div className="w-full bg-[hsl(228_30%_18%)] rounded-full h-3 overflow-hidden">
