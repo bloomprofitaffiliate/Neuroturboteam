@@ -4,8 +4,9 @@ import { Quiz } from "@/pages/Quiz";
 import { NeuralScan } from "@/pages/NeuralScan";
 import { EmailGate } from "@/pages/EmailGate";
 import { Results } from "@/pages/Results";
+import { BrainMythBuster } from "@/pages/BrainMythBuster";
 
-type Stage = "intro" | "quiz" | "scan" | "email" | "results";
+type Stage = "intro" | "quiz" | "scan" | "email" | "results" | "mythbuster";
 
 function App() {
   const [stage, setStage] = useState<Stage>("intro");
@@ -36,7 +37,10 @@ function App() {
       {stage === "scan" && <NeuralScan onComplete={() => setStage("email")} />}
       {stage === "email" && <EmailGate totalScore={totalScore} onSubmit={handleEmailSubmit} />}
       {stage === "results" && (
-        <Results totalScore={totalScore} userName={userName} onRetake={handleRetake} />
+        <Results totalScore={totalScore} userName={userName} onRetake={handleRetake} onMythBuster={() => setStage("mythbuster")} />
+      )}
+      {stage === "mythbuster" && (
+        <BrainMythBuster userName={userName} onDone={() => setStage("results")} />
       )}
     </div>
   );

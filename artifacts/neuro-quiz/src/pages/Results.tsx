@@ -5,6 +5,7 @@ interface ResultsProps {
   totalScore: number;
   userName: string;
   onRetake: () => void;
+  onMythBuster: () => void;
 }
 
 const allDays = [
@@ -25,7 +26,7 @@ const allDays = [
   { day: 15, goal: "The Goodbye", subject: "One last look at your new brain potential? 🧠🔓" },
 ];
 
-export function Results({ totalScore, userName, onRetake }: ResultsProps) {
+export function Results({ totalScore, userName, onRetake, onMythBuster }: ResultsProps) {
   const result = getResult(totalScore);
   const percentage = parseInt(result.scoreRange);
 
@@ -142,12 +143,12 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
         </div>
 
         <button
-          data-testid="button-retake"
-          onClick={onRetake}
+          data-testid="button-mythbuster"
+          onClick={onMythBuster}
           className="w-full font-black text-base py-4 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style={{ background: "linear-gradient(135deg, #FF69B4, #FF6600)", color: "white" }}
+          style={{ background: "linear-gradient(135deg, #FF6600, #FFE600)", color: "#0B0E14" }}
         >
-          🔄 Retake the Quiz
+          🎮 Play Brain Myth Buster!
         </button>
       </div>
     </div>
