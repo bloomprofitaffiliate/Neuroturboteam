@@ -49,10 +49,6 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
           </h2>
         </div>
 
-        <div className="flex justify-center">
-          <BrainMascot type={result.mascot} size={130} />
-        </div>
-
         <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-6 border border-[hsl(228_30%_20%)] text-center">
           <p className="text-[hsl(228_20%_60%)] text-sm font-semibold mb-3">Neural Performance Score</p>
           <div className="flex justify-center mb-3">
