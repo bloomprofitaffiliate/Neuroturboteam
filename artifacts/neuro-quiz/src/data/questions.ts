@@ -181,6 +181,9 @@ export interface ScoreResult {
   description: string;
   color: string;
   mascot: "turbo" | "zen" | "training" | "foggy";
+  ctaMascot: "ferrari" | "awakening" | "spirals" | "sos";
+  ctaHeadline: string;
+  ctaBody: string;
   scoreRange: string;
 }
 
@@ -194,6 +197,9 @@ export function getResult(totalScore: number): ScoreResult {
       description: "Your Neural Performance Score is outstanding. Your brain is firing on all cylinders — sharp focus, great energy, and mental clarity to spare. Keep doing what you're doing, and let's take it to the next level.",
       color: "#B9F6CA",
       mascot: "turbo",
+      ctaMascot: "ferrari",
+      ctaHeadline: "You're already in the fast lane — now hit the nitro! 🏎️",
+      ctaBody: "Your brain is performing above average, but there's a whole turbo boost waiting for you. This is what separates good from genuinely unstoppable.",
       scoreRange: `${percentage}`,
     };
   } else if (percentage >= 60) {
@@ -203,6 +209,9 @@ export function getResult(totalScore: number): ScoreResult {
       description: "Your Neural Performance Score shows a well-balanced brain with real room to grow. You're managing stress reasonably, but focus and energy could be optimized. A few targeted upgrades could unlock your next performance tier.",
       color: "#FF69B4",
       mascot: "zen",
+      ctaMascot: "awakening",
+      ctaHeadline: "You're calm — but there's a genius level above this you haven't unlocked yet 💡",
+      ctaBody: "You've got the zen, now it's time for the turbo. One level up and your brain becomes a completely different machine.",
       scoreRange: `${percentage}`,
     };
   } else if (percentage >= 40) {
@@ -212,6 +221,9 @@ export function getResult(totalScore: number): ScoreResult {
       description: "Your Neural Performance Score reveals some Spirals — those mental patterns that keep you foggy, scattered, and running below capacity. The good news? Spirals are completely fixable with the right approach.",
       color: "#FFB347",
       mascot: "foggy",
+      ctaMascot: "spirals",
+      ctaHeadline: "Your Ferrari engine is stuck in second gear! 🌀",
+      ctaBody: "The Spirals are real — but they're not permanent. The fix is simpler than you think, and it starts right here.",
       scoreRange: `${percentage}`,
     };
   } else {
@@ -221,6 +233,9 @@ export function getResult(totalScore: number): ScoreResult {
       description: "Your Neural Performance Score shows your brain is running in heavy fog. But here's the exciting part — you're not broken, you're just untrained. With the right tools, you can completely transform your mental performance.",
       color: "#FF69B4",
       mascot: "foggy",
+      ctaMascot: "sos",
+      ctaHeadline: "Your brain is sending an SOS — and we heard it! ☁️",
+      ctaBody: "The fog is real, but here's the great news: it lifts fast with the right tools. You're one click away from a completely different brain.",
       scoreRange: `${percentage}`,
     };
   }

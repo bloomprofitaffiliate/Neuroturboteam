@@ -83,19 +83,26 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-[#FF69B4]/20 to-[#ff4da6]/10 rounded-2xl p-5 border border-[#FF69B4]/40 text-center space-y-3">
+        <div
+          className="rounded-2xl p-5 border text-center space-y-4"
+          style={{ borderColor: `${result.color}50`, background: `${result.color}12` }}
+        >
+          <div className="flex justify-center">
+            <BrainMascot type={result.ctaMascot} size={110} />
+          </div>
           <p className="text-white font-black text-lg leading-snug">
-            Your Ferrari engine is stuck in second gear!
+            {result.ctaHeadline}
           </p>
           <p className="text-[hsl(0_0%_75%)] text-sm leading-relaxed">
-            Your Brain Score reveals untapped potential. The right tools can completely transform your mental performance in 15 days.
+            {result.ctaBody}
           </p>
           <a
             href="https://tinyurl.com/2kc2mta4"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-clickbank-cta"
-            className="block w-full bg-[#FF69B4] hover:bg-[#ff4da6] text-white font-black text-base py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="block w-full text-white font-black text-base py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: result.color, color: result.color === "#B9F6CA" ? "#0B0E14" : "white" }}
           >
             Unlock the Rest Here →
           </a>

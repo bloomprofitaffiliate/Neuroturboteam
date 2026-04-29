@@ -54,3 +54,27 @@ id = "6z8n-TevgJg1HvbalLX-T"
 uri = "file://attached_assets/brain_sharp.png"
 type = "image"
 title = "sharp confident brain character"
+
+[[generated]]
+id = "o9lMNwZtqN5bBHDp_nKTc"
+uri = "file://attached_assets/brain_ferrari.png"
+type = "image"
+title = "ferrari racing brain character"
+
+[[generated]]
+id = "-oCfAj4fcFE-tOot4-kTX"
+uri = "file://attached_assets/brain_spirals.png"
+type = "image"
+title = "spirals dizzy brain character"
+
+[[generated]]
+id = "93i3e34xRWhSeOFhPFZcI"
+uri = "file://attached_assets/brain_awakening.png"
+type = "image"
+title = "zen awakening brain character"
+
+[[generated]]
+id = "QjH8Kz-8b1hPHxx3F616r"
+uri = "file://attached_assets/brain_sos.png"
+type = "image"
+title = "sos foggy brain character"
