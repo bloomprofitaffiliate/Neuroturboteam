@@ -7,6 +7,24 @@ interface ResultsProps {
   onRetake: () => void;
 }
 
+const allDays = [
+  { day: 1, goal: "The Score", subject: "Your Brain Score is in! (Plus a surprise) 🧠🎁" },
+  { day: 2, goal: "The Problem", subject: "Why your head feels like a 1998 dial-up modem... 📡" },
+  { day: 3, goal: "The Fix", subject: 'How to "overclock" your brain (The Ferrari upgrade) 🏎️' },
+  { day: 4, goal: 'The "Spirals"', subject: "Adios, Brain Fog! Say goodbye to the Spirals 🌀👋" },
+  { day: 5, goal: "The Science", subject: "Alpha, Beta, Theta... which wave are you riding? 🌊" },
+  { day: 6, goal: "The Benefit", subject: 'Like a "Limitless" pill (but actually legal) 💊✨' },
+  { day: 7, goal: "The Motivation", subject: 'That "Maybe Tomorrow" voice? Let\'s mute it. 🚀' },
+  { day: 8, goal: "The Sleep", subject: 'Sleep like a "Lotus Brain" tonight 🧘‍♂️💤' },
+  { day: 9, goal: "The Energy", subject: '3 PM slump? More like 3 PM "Let\'s Go!" ⚡' },
+  { day: 10, goal: "The Focus", subject: "How to close the 50 tabs open in your mind 🖥️🚫" },
+  { day: 11, goal: "The Truth", subject: "What your phone is doing to your brain waves 📱😱" },
+  { day: 12, goal: "The Vision", subject: "Imagine your brain at 100% efficiency... 🌈🚀" },
+  { day: 13, goal: "Urgency", subject: "Your customized Neural Report is expiring! ⏳" },
+  { day: 14, goal: "Final Pitch", subject: 'Last chance for your "Quiz-Taker" discount 🎯' },
+  { day: 15, goal: "The Goodbye", subject: "One last look at your new brain potential? 🧠🔓" },
+];
+
 export function Results({ totalScore, userName, onRetake }: ResultsProps) {
   const result = getResult(totalScore);
   const percentage = parseInt(result.scoreRange);
@@ -14,17 +32,10 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
   const circumference = 2 * Math.PI * 52;
   const offset = circumference - (percentage / 100) * circumference;
 
-  const emailSequence = [
-    { day: 1, goal: "The Score", subject: "Your Brain Score is in! (Plus a surprise) 🧠🎁" },
-    { day: 2, goal: "The Problem", subject: "Why your head feels like a 1998 dial-up modem... 📡" },
-    { day: 3, goal: "The Fix", subject: 'How to "overclock" your brain (The Ferrari upgrade) 🏎️' },
-    { day: 4, goal: 'The "Spirals"', subject: "Adios, Brain Fog! Say goodbye to the Spirals 🌀👋" },
-    { day: 5, goal: "The Science", subject: "Alpha, Beta, Theta... which wave are you riding? 🌊" },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col items-center px-4 py-10 slide-in">
       <div className="max-w-md w-full space-y-6">
+
         <div className="text-center space-y-2">
           <div
             className="inline-block text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest"
@@ -39,9 +50,7 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
         </div>
 
         <div className="flex justify-center">
-          <div className="relative">
-            <BrainMascot type={result.mascot} size={130} />
-          </div>
+          <BrainMascot type={result.mascot} size={130} />
         </div>
 
         <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-6 border border-[hsl(228_30%_20%)] text-center">
@@ -50,9 +59,7 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
             <svg width="130" height="130" viewBox="0 0 130 130">
               <circle cx="65" cy="65" r="52" fill="none" stroke="hsl(228 30% 20%)" strokeWidth="10" />
               <circle
-                cx="65"
-                cy="65"
-                r="52"
+                cx="65" cy="65" r="52"
                 fill="none"
                 stroke={result.color}
                 strokeWidth="10"
@@ -76,30 +83,48 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
           </p>
         </div>
 
+        <div className="bg-gradient-to-br from-[#FF69B4]/20 to-[#ff4da6]/10 rounded-2xl p-5 border border-[#FF69B4]/40 text-center space-y-3">
+          <p className="text-white font-black text-lg leading-snug">
+            Your Ferrari engine is stuck in second gear!
+          </p>
+          <p className="text-[hsl(0_0%_75%)] text-sm leading-relaxed">
+            Your Brain Score reveals untapped potential. The right tools can completely transform your mental performance in 15 days.
+          </p>
+          <a
+            href="https://www.clickbank.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="button-clickbank-cta"
+            className="block w-full bg-[#FF69B4] hover:bg-[#ff4da6] text-white font-black text-base py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Unlock the Rest Here →
+          </a>
+          <p className="text-[hsl(228_20%_50%)] text-xs">Special Quiz-Taker offer • Limited time</p>
+        </div>
+
         <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-5 border border-[hsl(228_30%_20%)] space-y-4">
-          <h3 className="text-white font-black text-base">
-            Your "Neuro-Turbo" 5-Day Email Series 📬
-          </h3>
-          <div className="space-y-3">
-            {emailSequence.map((item) => (
-              <div key={item.day} className="flex gap-3 items-start">
+          <div className="flex items-center gap-2">
+            <span className="text-lg">📬</span>
+            <h3 className="text-white font-black text-base">
+              Your 15-Day "Neuro-Turbo" Email Series
+            </h3>
+          </div>
+          <p className="text-[hsl(228_20%_55%)] text-xs">Check your inbox — Day 1 is on its way!</p>
+          <div className="space-y-2">
+            {allDays.map((item) => (
+              <div key={item.day} className="flex gap-3 items-start py-2 border-b border-[hsl(228_30%_18%)] last:border-0">
                 <div
-                  className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black"
-                  style={{ backgroundColor: `${result.color}25`, color: result.color }}
+                  className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black mt-0.5"
+                  style={{ backgroundColor: `${result.color}20`, color: result.color }}
                 >
                   {item.day}
                 </div>
-                <div>
-                  <p className="text-[hsl(228_20%_55%)] text-xs font-bold uppercase tracking-wide">{item.goal}</p>
-                  <p className="text-[hsl(0_0%_85%)] text-sm font-semibold leading-snug">{item.subject}</p>
+                <div className="min-w-0">
+                  <p className="text-[hsl(228_20%_50%)] text-xs font-bold uppercase tracking-wide">{item.goal}</p>
+                  <p className="text-[hsl(0_0%_82%)] text-sm font-semibold leading-snug">{item.subject}</p>
                 </div>
               </div>
             ))}
-          </div>
-          <div className="bg-[#FF69B4]/10 border border-[#FF69B4]/30 rounded-xl p-3 text-center">
-            <p className="text-[#FF69B4] text-sm font-bold">
-              Check your inbox — Day 1 email is on its way! 🚀
-            </p>
           </div>
         </div>
 
