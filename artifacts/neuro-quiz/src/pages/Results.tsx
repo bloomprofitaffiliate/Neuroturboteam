@@ -118,7 +118,7 @@ export function Results({ totalScore, userName, onRetake }: ResultsProps) {
               <div key={item.day} className="flex gap-3 items-start py-2 border-b border-[hsl(228_30%_18%)] last:border-0">
                 <div
                   className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black mt-0.5"
-                  style={{ backgroundColor: `${result.color}20`, color: result.color }}
+                  style={{ backgroundColor: "#FF660030", color: "#FF6600" }}
                 >
                   {item.day}
                 </div>

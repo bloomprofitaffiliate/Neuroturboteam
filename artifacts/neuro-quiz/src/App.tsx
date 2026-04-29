@@ -34,7 +34,7 @@ function App() {
       {stage === "intro" && <Intro onStart={() => setStage("quiz")} />}
       {stage === "quiz" && <Quiz onComplete={handleQuizComplete} />}
       {stage === "scan" && <NeuralScan onComplete={() => setStage("email")} />}
-      {stage === "email" && <EmailGate onSubmit={handleEmailSubmit} />}
+      {stage === "email" && <EmailGate totalScore={totalScore} onSubmit={handleEmailSubmit} />}
       {stage === "results" && (
         <Results totalScore={totalScore} userName={userName} onRetake={handleRetake} />
       )}
