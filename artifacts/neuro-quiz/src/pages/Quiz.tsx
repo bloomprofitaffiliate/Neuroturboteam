@@ -31,21 +31,23 @@ export function Quiz({ onComplete }: QuizProps) {
   function handleSelect(value: string, score: number) {
     if (animating) return;
     setSelected(value);
+    setAnimating(true);
 
     setTimeout(() => {
-      const newAnswers = [...answers, score];
-      setAnimating(true);
-      setTimeout(() => {
-        if (currentIndex < shuffledQuestions.length - 1) {
-          setAnswers(newAnswers);
-          setCurrentIndex(currentIndex + 1);
-          setSelected(null);
-          setAnimating(false);
-        } else {
-          onComplete(newAnswers);
+      setAnswers(prev => {
+        const newAnswers = [...prev, score];
+        if (currentIndex >= shuffledQuestions.length - 1) {
+          setTimeout(() => onComplete(newAnswers), 0);
+          return prev;
         }
-      }, 300);
-    }, 400);
+        return newAnswers;
+      });
+      if (currentIndex < shuffledQuestions.length - 1) {
+        setCurrentIndex(i => i + 1);
+        setSelected(null);
+        setAnimating(false);
+      }
+    }, 500);
   }
 
   return (

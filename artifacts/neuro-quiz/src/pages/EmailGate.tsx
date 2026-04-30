@@ -75,6 +75,12 @@ export function EmailGate({ totalScore, onSubmit }: EmailGateProps) {
           <h2 className="text-3xl font-black text-white">
             {spinning ? "Scanning the data..." : "Your Brain Score is Ready!"}
           </h2>
+          {!spinning && (
+            <div className="text-5xl font-black" style={{ color: result.color }}>
+              {parseInt(result.scoreRange)}
+              <span className="text-2xl text-[hsl(228_20%_55%)]">%</span>
+            </div>
+          )}
           <p className="text-[hsl(228_20%_65%)] text-base leading-relaxed">
             {spinning ? "Hold tight — your results are almost here!" : (
               <>Enter your details below to reveal your customized{" "}
