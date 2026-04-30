@@ -299,7 +299,10 @@ export function BrainMythBuster({ userName, onDone }: BrainMythBusterProps) {
             <h2 className="text-3xl font-black text-white">{finalResult.title}</h2>
             {userName && <p className="text-[#FF69B4] font-bold mt-1">{userName}'s brain scored {score}/{totalQ}</p>}
           </div>
-          <div className="flex justify-center">
+          <div
+            className={`flex justify-center cursor-pointer brain-hover-${finalResult.mascot}`}
+            title="Hover me!"
+          >
             <BrainMascot type={finalResult.mascot} size={130} />
           </div>
           <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-5 border border-[hsl(228_30%_20%)]">

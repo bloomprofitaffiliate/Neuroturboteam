@@ -125,3 +125,47 @@
   background: hsl(330 100% 71% / 0.15);
   border-color: hsl(330 100% 71%);
 }
+
+@keyframes brain-wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  15% { transform: rotate(-12deg) scale(1.08); }
+  30% { transform: rotate(12deg) scale(1.08); }
+  45% { transform: rotate(-8deg) scale(1.05); }
+  60% { transform: rotate(8deg) scale(1.05); }
+  75% { transform: rotate(-4deg) scale(1.02); }
+  90% { transform: rotate(4deg) scale(1.02); }
+}
+
+@keyframes brain-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(-18px) scale(1.1); }
+  40% { transform: translateY(0) scale(0.95); }
+  60% { transform: translateY(-10px) scale(1.05); }
+  80% { transform: translateY(0) scale(0.98); }
+}
+
+@keyframes brain-spin-joy {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(15deg) scale(1.15); }
+  50% { transform: rotate(-10deg) scale(1.1); }
+  75% { transform: rotate(8deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes brain-pulse-calm {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.12); filter: brightness(1.2); }
+}
+
+@keyframes brain-droop {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-6deg) translateY(4px); }
+  50% { transform: rotate(3deg) translateY(6px); }
+  75% { transform: rotate(-3deg) translateY(4px); }
+}
+
+.brain-hover-turbo:hover img  { animation: brain-bounce 0.7s ease-in-out infinite !important; }
+.brain-hover-sharp:hover img  { animation: brain-spin-joy 0.6s ease-in-out infinite !important; }
+.brain-hover-zen:hover img    { animation: brain-pulse-calm 1s ease-in-out infinite !important; }
+.brain-hover-foggy:hover img  { animation: brain-droop 0.9s ease-in-out infinite !important; }
+.brain-hover-generic:hover img { animation: brain-wiggle 0.7s ease-in-out infinite !important; }
