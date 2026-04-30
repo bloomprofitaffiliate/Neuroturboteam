@@ -27,7 +27,7 @@ const allDays = [
   { day: 15, goal: "The Goodbye", subject: "One last look at your new brain potential? 🧠🔓" },
 ];
 
-export function Results({ totalScore, userName, onRetake, onMythBuster }: ResultsProps) {
+export function Results({ totalScore, userName, onRetake, onMythBuster, onCustomTips }: ResultsProps) {
   const result = getResult(totalScore);
   const percentage = parseInt(result.scoreRange);
 
