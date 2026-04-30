@@ -64,9 +64,20 @@ export function Intro({ onStart, onLockedTips }: IntroProps) {
 
         {showCheeky && (
           <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-5 border-2 border-[#FF69B4]/40 slide-in">
-            <div className="flex justify-center mb-3">
-              <BrainMascot type="sharp" size={80} />
+            <div className="flex justify-center mb-1 relative">
+              <div style={{ transform: "rotate(-8deg)" }}>
+                <BrainMascot type="turbo" size={80} />
+              </div>
+              <span
+                className="absolute text-3xl select-none pointer-events-none"
+                style={{ bottom: -6, right: "calc(50% - 52px)", transform: "rotate(15deg)" }}
+              >
+                😛
+              </span>
             </div>
+            <p className="text-[#FF69B4] font-black text-sm uppercase tracking-widest mt-3 mb-1">
+              Start your brain up first! 😛
+            </p>
             <p className="text-white font-black text-base leading-snug">{cheekLine}</p>
             <button
               onClick={() => setShowCheeky(false)}
