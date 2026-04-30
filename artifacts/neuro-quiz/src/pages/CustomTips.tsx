@@ -193,7 +193,7 @@ export function CustomTips({ brainType, userName, onBack }: CustomTipsProps) {
           onClick={onBack}
           className="w-full border-2 border-[hsl(228_30%_25%)] text-[hsl(228_20%_60%)] hover:text-white font-bold text-sm py-3 rounded-xl transition-all duration-200"
         >
-          ← Back to My Results
+          ← Back to Your {title} Results
         </button>
       </div>
     </div>
