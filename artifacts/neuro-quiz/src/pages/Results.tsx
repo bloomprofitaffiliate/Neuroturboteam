@@ -6,6 +6,7 @@ interface ResultsProps {
   userName: string;
   onRetake: () => void;
   onMythBuster: () => void;
+  onCustomTips: () => void;
 }
 
 const allDays = [
@@ -141,6 +142,15 @@ export function Results({ totalScore, userName, onRetake, onMythBuster }: Result
             })}
           </div>
         </div>
+
+        <button
+          data-testid="button-custom-tips"
+          onClick={onCustomTips}
+          className="w-full font-black text-base py-4 rounded-2xl border-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style={{ borderColor: result.color, color: result.color, background: `${result.color}12` }}
+        >
+          🎯 Get My Custom Tips
+        </button>
 
         <button
           data-testid="button-mythbuster"

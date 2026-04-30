@@ -5,8 +5,10 @@ import { NeuralScan } from "@/pages/NeuralScan";
 import { EmailGate } from "@/pages/EmailGate";
 import { Results } from "@/pages/Results";
 import { BrainMythBuster } from "@/pages/BrainMythBuster";
+import { CustomTips } from "@/pages/CustomTips";
+import { getResult } from "@/data/questions";
 
-type Stage = "intro" | "quiz" | "scan" | "email" | "results" | "mythbuster";
+type Stage = "intro" | "quiz" | "scan" | "email" | "results" | "mythbuster" | "tips";
 
 function App() {
   const [stage, setStage] = useState<Stage>("intro");
@@ -30,17 +32,37 @@ function App() {
     setUserName("");
   }
 
+  const result = getResult(totalScore);
+
   return (
     <div className="min-h-screen">
-      {stage === "intro" && <Intro onStart={() => setStage("quiz")} />}
+      {stage === "intro" && (
+        <Intro
+          onStart={() => setStage("quiz")}
+          onLockedTips={() => {}}
+        />
+      )}
       {stage === "quiz" && <Quiz onComplete={handleQuizComplete} />}
       {stage === "scan" && <NeuralScan onComplete={() => setStage("email")} />}
       {stage === "email" && <EmailGate totalScore={totalScore} onSubmit={handleEmailSubmit} />}
       {stage === "results" && (
-        <Results totalScore={totalScore} userName={userName} onRetake={handleRetake} onMythBuster={() => setStage("mythbuster")} />
+        <Results
+          totalScore={totalScore}
+          userName={userName}
+          onRetake={handleRetake}
+          onMythBuster={() => setStage("mythbuster")}
+          onCustomTips={() => setStage("tips")}
+        />
       )}
       {stage === "mythbuster" && (
         <BrainMythBuster userName={userName} onDone={() => setStage("results")} />
+      )}
+      {stage === "tips" && (
+        <CustomTips
+          brainType={result.tipKey}
+          userName={userName}
+          onBack={() => setStage("results")}
+        />
       )}
     </div>
   );

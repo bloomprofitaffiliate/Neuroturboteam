@@ -185,6 +185,7 @@ export interface ScoreResult {
   ctaHeadline: string;
   ctaBody: string;
   scoreRange: string;
+  tipKey: "turbo" | "zen" | "spirals" | "foggy";
 }
 
 export function getResult(totalScore: number): ScoreResult {
@@ -204,6 +205,7 @@ export function getResult(totalScore: number): ScoreResult {
       ctaHeadline: "You're already in the fast lane — now hit the nitro! 🏎️",
       ctaBody: "Your brain is performing above average, but there's a whole turbo boost waiting for you. This is what separates good from genuinely unstoppable.",
       scoreRange: `${percentage}`,
+      tipKey: "turbo",
     };
   } else if (percentage >= 50) {
     return {
@@ -216,6 +218,7 @@ export function getResult(totalScore: number): ScoreResult {
       ctaHeadline: "You're calm — but there's a genius level above this you haven't unlocked yet 💡",
       ctaBody: "You've got the zen, now it's time for the turbo. One level up and your brain becomes a completely different machine.",
       scoreRange: `${percentage}`,
+      tipKey: "zen",
     };
   } else if (percentage >= 25) {
     return {
@@ -228,6 +231,7 @@ export function getResult(totalScore: number): ScoreResult {
       ctaHeadline: "Your Ferrari engine is stuck in second gear! 🌀",
       ctaBody: "The Spirals are real — but they're not permanent. The fix is simpler than you think, and it starts right here.",
       scoreRange: `${percentage}`,
+      tipKey: "spirals",
     };
   } else {
     return {
@@ -240,6 +244,7 @@ export function getResult(totalScore: number): ScoreResult {
       ctaHeadline: "Your brain is sending an SOS — and we heard it! ☁️",
       ctaBody: "The fog is real, but here's the great news: it lifts fast with the right tools. You're one click away from a completely different brain.",
       scoreRange: `${percentage}`,
+      tipKey: "foggy",
     };
   }
 }

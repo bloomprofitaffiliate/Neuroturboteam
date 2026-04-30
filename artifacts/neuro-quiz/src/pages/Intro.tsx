@@ -1,10 +1,29 @@
+import { useState } from "react";
 import { BrainMascot } from "@/components/BrainMascot";
 
 interface IntroProps {
   onStart: () => void;
+  onLockedTips: () => void;
 }
 
-export function Intro({ onStart }: IntroProps) {
+const cheekLines = [
+  "Oh, you think tips just fall from the sky?! 😤 Finish the quiz first, then we'll talk.",
+  "Nice try, sneaky brain! 🕵️ The tips are locked until you complete your scan.",
+  "Mmm, no. Absolutely not. Do the quiz. THEN the tips. That's the deal. 🙅",
+  "The tips are in another castle, Mario. 🏰 Start the quiz to unlock them!",
+  "*taps forehead* These tips? Not for pre-quiz brains. Do your scan first. 🧠",
+  "You haven't even started the quiz yet and you want the tips?! Bold. I respect it. But no. 😂",
+];
+
+export function Intro({ onStart, onLockedTips }: IntroProps) {
+  const [showCheeky, setShowCheeky] = useState(false);
+  const [cheekLine] = useState(() => cheekLines[Math.floor(Math.random() * cheekLines.length)]);
+
+  function handleTipsTap() {
+    setShowCheeky(true);
+    onLockedTips();
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 slide-in">
       <div className="max-w-md w-full text-center space-y-6">
@@ -28,16 +47,35 @@ export function Intro({ onStart }: IntroProps) {
 
         <div className="grid grid-cols-3 gap-3 text-center">
           {[
-            { emoji: "⚡", label: "15 Questions" },
-            { emoji: "🧠", label: "Brain Score" },
-            { emoji: "🎯", label: "Custom Tips" },
+            { emoji: "⚡", label: "15 Questions", clickable: false },
+            { emoji: "🧠", label: "Brain Score", clickable: false },
+            { emoji: "🎯", label: "Custom Tips", clickable: true },
           ].map((item) => (
-            <div key={item.label} className="bg-[hsl(228_40%_12%)] rounded-xl p-3 border border-[hsl(228_30%_20%)]">
+            <div
+              key={item.label}
+              onClick={item.clickable ? handleTipsTap : undefined}
+              className={`bg-[hsl(228_40%_12%)] rounded-xl p-3 border border-[hsl(228_30%_20%)] ${item.clickable ? "cursor-pointer hover:border-[#FF69B4]/60 hover:bg-[hsl(228_40%_16%)] transition-all duration-200" : ""}`}
+            >
               <div className="text-2xl">{item.emoji}</div>
               <div className="text-xs text-[hsl(228_20%_65%)] font-semibold mt-1">{item.label}</div>
             </div>
           ))}
         </div>
+
+        {showCheeky && (
+          <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-5 border-2 border-[#FF69B4]/40 slide-in">
+            <div className="flex justify-center mb-3">
+              <BrainMascot type="sharp" size={80} />
+            </div>
+            <p className="text-white font-black text-base leading-snug">{cheekLine}</p>
+            <button
+              onClick={() => setShowCheeky(false)}
+              className="mt-3 text-[hsl(228_20%_50%)] text-xs font-bold hover:text-white transition-colors"
+            >
+              Fine, fine... I'll do the quiz 🙄
+            </button>
+          </div>
+        )}
 
         <button
           data-testid="button-start-quiz"
