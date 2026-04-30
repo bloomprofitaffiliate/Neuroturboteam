@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "6gb1aQJyEG4kHlJkkDilx"
@@ -78,3 +77,9 @@ id = "QjH8Kz-8b1hPHxx3F616r"
 uri = "file://attached_assets/brain_sos.png"
 type = "image"
 title = "sos foggy brain character"
+
+[[outputs]]
+id = "pSfqPh4bO7pwSYdxZ00B-"
+uri = "file://email-sequence/neuro-turbo-15-day-emails.md"
+type = "text"
+title = "Neuro-Turbo 15-Day Email Sequence"
