@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { BrainMascot } from "@/components/BrainMascot";
 import type { MascotType } from "@/components/BrainMascot";
 
@@ -6,6 +6,7 @@ interface CustomTipsProps {
   brainType: "turbo" | "zen" | "spirals" | "foggy";
   userName: string;
   onBack: () => void;
+  onRetake: () => void;
 }
 
 type TipPool = Record<string, string[]>;
@@ -113,20 +114,14 @@ const titleMap: Record<string, string> = {
   foggy: "Neuro-Foggy",
 };
 
-export function CustomTips({ brainType, userName, onBack }: CustomTipsProps) {
-  const [tips, setTips] = useState<string[]>(() =>
+export function CustomTips({ brainType, userName, onBack, onRetake }: CustomTipsProps) {
+  const [tips] = useState<string[]>(() =>
     shuffle(tipPools[brainType]).slice(0, TIPS_PER_SESSION)
   );
-  const [refreshCount, setRefreshCount] = useState(0);
 
   const color = colorMap[brainType];
   const mascot = mascotMap[brainType];
   const title = titleMap[brainType];
-
-  function handleRefresh() {
-    setTips(shuffle(tipPools[brainType]).slice(0, TIPS_PER_SESSION));
-    setRefreshCount(c => c + 1);
-  }
 
   return (
     <div className="min-h-screen flex flex-col items-center px-4 py-10 slide-in">
@@ -154,7 +149,7 @@ export function CustomTips({ brainType, userName, onBack }: CustomTipsProps) {
         <div className="space-y-3">
           {tips.map((tip, i) => (
             <div
-              key={`${refreshCount}-${i}`}
+              key={i}
               className="bg-[hsl(228_40%_12%)] rounded-2xl p-4 border border-[hsl(228_30%_20%)] slide-in"
               style={{ animationDelay: `${i * 0.07}s` }}
             >
@@ -171,29 +166,21 @@ export function CustomTips({ brainType, userName, onBack }: CustomTipsProps) {
           ))}
         </div>
 
-        <button
-          onClick={handleRefresh}
-          className="w-full border-2 font-black text-sm py-4 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style={{ borderColor: color, color }}
-        >
-          🔄 Give Me 5 New Tips
-        </button>
-
         <a
           href="https://tinyurl.com/2kc2mta4"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-white font-black text-base py-4 rounded-xl text-center transition-all duration-200 hover:scale-[1.02]"
+          className="block w-full font-black text-base py-4 rounded-xl text-center transition-all duration-200 hover:scale-[1.02]"
           style={{ background: color, color: color === "#B9F6CA" ? "#0B0E14" : "white" }}
         >
           Unlock the Full Brain Upgrade →
         </a>
 
         <button
-          onClick={onBack}
-          className="w-full border-2 border-[hsl(228_30%_25%)] text-[hsl(228_20%_60%)] hover:text-white font-bold text-sm py-3 rounded-xl transition-all duration-200"
+          onClick={onRetake}
+          className="w-full border-2 border-[hsl(228_30%_25%)] text-[hsl(228_20%_60%)] hover:text-white font-bold text-sm py-3 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
         >
-          ← Back to Your {title} Results
+          🔄 Redo the Test
         </button>
       </div>
     </div>

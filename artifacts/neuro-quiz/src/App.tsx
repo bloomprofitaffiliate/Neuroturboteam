@@ -62,6 +62,7 @@ function App() {
           brainType={result.tipKey}
           userName={userName}
           onBack={() => setStage("results")}
+          onRetake={handleRetake}
         />
       )}
     </div>
