@@ -161,7 +161,7 @@ export function CustomTips({ brainType, userName, onBack }: CustomTipsProps) {
               <div className="flex gap-3 items-start">
                 <div
                   className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black mt-0.5"
-                  style={{ backgroundColor: `${color}25`, color }}
+                  style={{ backgroundColor: "#39FF1425", color: "#39FF14" }}
                 >
                   {i + 1}
                 </div>
