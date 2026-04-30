@@ -55,6 +55,66 @@ const mythQuestions: MythQuestion[] = [
     correct: "fact",
     explanation: "Neurogenesis is real! Exercise, quality sleep, and learning new things all help your brain grow fresh neurons at any age.",
   },
+  {
+    statement: "Listening to Mozart makes babies smarter.",
+    correct: "myth",
+    explanation: "The famous 'Mozart Effect' study only showed a short-term boost in one specific spatial task in college students — and it faded fast. No lasting baby genius effect!",
+  },
+  {
+    statement: "Your brain can physically change and rewire itself at any age.",
+    correct: "fact",
+    explanation: "This is called neuroplasticity — and it's one of the most exciting things about your brain. New habits, skills, and experiences literally reshape your neural wiring.",
+  },
+  {
+    statement: "Reading in dim light permanently damages your eyesight.",
+    correct: "myth",
+    explanation: "It might give you eye strain and a headache, but no permanent damage. Your eyes (and brain) bounce right back once the light improves!",
+  },
+  {
+    statement: "Stress physically shrinks parts of your brain over time.",
+    correct: "fact",
+    explanation: "Chronic stress floods your brain with cortisol, which can shrink the hippocampus — your memory centre. Another reason to take stress seriously!",
+  },
+  {
+    statement: "Your brain is fully formed by the time you're a teenager.",
+    correct: "myth",
+    explanation: "Not even close! The decision-making, impulse-control part of your brain (prefrontal cortex) isn't fully wired until your mid-20s.",
+  },
+  {
+    statement: "Exercise is one of the best things you can do for your brain.",
+    correct: "fact",
+    explanation: "Physical movement boosts BDNF — basically 'fertiliser' for brain cells. It improves memory, focus, and mood better than almost anything else.",
+  },
+  {
+    statement: "We have a dominant hand because one side of our brain is stronger.",
+    correct: "myth",
+    explanation: "Handedness is far more complex than one 'dominant' hemisphere. It involves a whole network of brain regions and even genetics.",
+  },
+  {
+    statement: "Your gut has its own nervous system and communicates directly with your brain.",
+    correct: "fact",
+    explanation: "The enteric nervous system in your gut has around 100 million neurons. The gut-brain axis is real — your gut literally talks to your brain all day long!",
+  },
+  {
+    statement: "Humans have the biggest brains of any animal.",
+    correct: "myth",
+    explanation: "Elephants and sperm whales have much bigger brains by weight! What matters is the brain-to-body ratio and the complexity of the cortex — where humans win.",
+  },
+  {
+    statement: "A positive mindset can physically change how your brain processes pain.",
+    correct: "fact",
+    explanation: "Optimism and positive expectation activate real pain-reducing pathways in the brain. This is the placebo effect in action — and it's completely legitimate neuroscience.",
+  },
+  {
+    statement: "You lose most of your brain cells by the time you reach 40.",
+    correct: "myth",
+    explanation: "You actually keep the vast majority of your neurons your whole life. The connections between them strengthen or weaken — but the cells themselves mostly stick around.",
+  },
+  {
+    statement: "Dehydration — even mild — noticeably reduces your brain performance.",
+    correct: "fact",
+    explanation: "Being just 1–2% dehydrated is enough to impair focus, memory, and mood. Your brain is about 75% water — so drink up!",
+  },
 ];
 
 const scoreResults = [
@@ -80,11 +140,12 @@ export function BrainMythBuster({ userName, onDone }: BrainMythBusterProps) {
   const [done, setDone] = useState(false);
   const [animating, setAnimating] = useState(false);
 
-  const shuffledQuestions = useMemo(() => shuffle(mythQuestions), []);
+  const QUESTIONS_PER_GAME = 8;
+  const shuffledQuestions = useMemo(() => shuffle(mythQuestions).slice(0, QUESTIONS_PER_GAME), []);
 
   const question = shuffledQuestions[index];
   const isCorrect = chosen !== null && chosen === question.correct;
-  const totalQ = mythQuestions.length;
+  const totalQ = shuffledQuestions.length;
 
   function handleAnswer(ans: Answer) {
     if (chosen || animating) return;
