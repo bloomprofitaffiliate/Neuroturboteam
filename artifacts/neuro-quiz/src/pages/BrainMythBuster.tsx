@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { BrainMascot } from "@/components/BrainMascot";
 
 interface BrainMythBusterProps {
@@ -64,6 +64,15 @@ const scoreResults = [
   { min: 0, title: "Myth Victim!", emoji: "😅", desc: "The myths had you fooled — but hey, that's literally why these are myths!", mascot: "foggy" as const },
 ];
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function BrainMythBuster({ userName, onDone }: BrainMythBusterProps) {
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState<Answer | null>(null);
@@ -71,7 +80,9 @@ export function BrainMythBuster({ userName, onDone }: BrainMythBusterProps) {
   const [done, setDone] = useState(false);
   const [animating, setAnimating] = useState(false);
 
-  const question = mythQuestions[index];
+  const shuffledQuestions = useMemo(() => shuffle(mythQuestions), []);
+
+  const question = shuffledQuestions[index];
   const isCorrect = chosen !== null && chosen === question.correct;
   const totalQ = mythQuestions.length;
 
