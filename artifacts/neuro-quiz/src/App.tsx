@@ -5,15 +5,16 @@ import { NeuralScan } from "@/pages/NeuralScan";
 import { EmailGate } from "@/pages/EmailGate";
 import { Results } from "@/pages/Results";
 import { BrainMythBuster } from "@/pages/BrainMythBuster";
-import { CustomTips } from "@/pages/CustomTips";
+import { BrainTease } from "@/pages/BrainTease";
 import { getResult } from "@/data/questions";
 
-type Stage = "intro" | "quiz" | "scan" | "email" | "results" | "mythbuster" | "tips";
+type Stage = "intro" | "quiz" | "scan" | "email" | "results" | "mythbuster" | "tease";
 
 function App() {
   const [stage, setStage] = useState<Stage>("intro");
   const [totalScore, setTotalScore] = useState(0);
   const [userName, setUserName] = useState("");
+  const [mythScore, setMythScore] = useState<number | null>(null);
 
   function handleQuizComplete(answers: number[]) {
     const score = answers.reduce((sum, s) => sum + s, 0);
@@ -30,6 +31,12 @@ function App() {
     setStage("intro");
     setTotalScore(0);
     setUserName("");
+    // mythScore intentionally kept so it shows on the intro badge
+  }
+
+  function handleMythDone(score: number) {
+    setMythScore(score);
+    setStage("tease");
   }
 
   const result = getResult(totalScore);
@@ -40,6 +47,7 @@ function App() {
         <Intro
           onStart={() => setStage("quiz")}
           onLockedTips={() => {}}
+          mythScore={mythScore}
         />
       )}
       {stage === "quiz" && <Quiz onComplete={handleQuizComplete} />}
@@ -51,17 +59,15 @@ function App() {
           userName={userName}
           onRetake={handleRetake}
           onMythBuster={() => setStage("mythbuster")}
-          onCustomTips={() => setStage("tips")}
+          onCustomTips={() => setStage("tease")}
         />
       )}
       {stage === "mythbuster" && (
-        <BrainMythBuster userName={userName} onDone={handleRetake} />
+        <BrainMythBuster userName={userName} onDone={handleMythDone} />
       )}
-      {stage === "tips" && (
-        <CustomTips
-          brainType={result.tipKey}
+      {stage === "tease" && (
+        <BrainTease
           userName={userName}
-          onBack={() => setStage("results")}
           onRetake={handleRetake}
         />
       )}

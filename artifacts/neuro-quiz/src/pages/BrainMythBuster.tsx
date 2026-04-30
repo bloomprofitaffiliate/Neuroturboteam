@@ -3,7 +3,7 @@ import { BrainMascot } from "@/components/BrainMascot";
 
 interface BrainMythBusterProps {
   userName: string;
-  onDone: () => void;
+  onDone: (score: number) => void;
 }
 
 type Answer = "myth" | "fact";
@@ -253,7 +253,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function BrainMythBuster({ userName, onDone }: BrainMythBusterProps) {
+export function BrainMythBuster({ userName, onDone: onDoneCallback }: BrainMythBusterProps) {
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState<Answer | null>(null);
   const [score, setScore] = useState(0);
@@ -334,10 +334,10 @@ export function BrainMythBuster({ userName, onDone }: BrainMythBusterProps) {
               Unlock Your Full Brain Upgrade →
             </a>
             <button
-              onClick={onDone}
-              className="w-full border-2 border-[hsl(228_30%_25%)] text-[hsl(228_20%_60%)] hover:text-white font-bold text-sm py-3 rounded-xl transition-all duration-200"
+              onClick={() => onDoneCallback(score)}
+              className="w-full border-2 border-[#39FF14]/50 text-[#39FF14] hover:bg-[#39FF14]/10 font-bold text-sm py-3 rounded-xl transition-all duration-200"
             >
-              🔄 Redo the Quiz
+              🧠 Get My Brain Teasers!
             </button>
           </div>
         </div>

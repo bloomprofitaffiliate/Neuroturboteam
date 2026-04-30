@@ -4,6 +4,7 @@ import { BrainMascot } from "@/components/BrainMascot";
 interface IntroProps {
   onStart: () => void;
   onLockedTips: () => void;
+  mythScore?: number | null;
 }
 
 const cheekLines = [
@@ -15,7 +16,7 @@ const cheekLines = [
   { intro: "Bypassing the quiz like a pro 👀 Your reward:", tip: "Chewing gum during a boring task increases alertness by up to 20%. Your brain thinks something important is about to happen. Works every time." },
 ];
 
-export function Intro({ onStart, onLockedTips }: IntroProps) {
+export function Intro({ onStart, onLockedTips, mythScore }: IntroProps) {
   const [showCheeky, setShowCheeky] = useState(false);
   const [cheekLine] = useState(() => cheekLines[Math.floor(Math.random() * cheekLines.length)]);
 
@@ -46,20 +47,32 @@ export function Intro({ onStart, onLockedTips }: IntroProps) {
         </div>
 
         <div className="grid grid-cols-3 gap-3 text-center">
-          {[
-            { emoji: "⚡", label: "15 Questions", clickable: false },
-            { emoji: "🧠", label: "Brain Score", clickable: false },
-            { emoji: "🎯", label: "Custom Tips", clickable: true },
-          ].map((item) => (
-            <div
-              key={item.label}
-              onClick={item.clickable ? handleTipsTap : undefined}
-              className={`bg-[hsl(228_40%_12%)] rounded-xl p-3 border border-[hsl(228_30%_20%)] ${item.clickable ? "cursor-pointer hover:border-[#FF69B4]/60 hover:bg-[hsl(228_40%_16%)] transition-all duration-200" : ""}`}
-            >
-              <div className="text-2xl">{item.emoji}</div>
-              <div className="text-xs text-[hsl(228_20%_65%)] font-semibold mt-1">{item.label}</div>
-            </div>
-          ))}
+          <div className="bg-[hsl(228_40%_12%)] rounded-xl p-3 border border-[hsl(228_30%_20%)]">
+            <div className="text-2xl">⚡</div>
+            <div className="text-xs text-[hsl(228_20%_65%)] font-semibold mt-1">15 Questions</div>
+          </div>
+
+          <div className="bg-[hsl(228_40%_12%)] rounded-xl p-3 border border-[hsl(228_30%_20%)]">
+            <div className="text-2xl">🧠</div>
+            {mythScore != null ? (
+              <>
+                <div className="text-xs font-black mt-1" style={{ color: "#39FF14" }}>
+                  {mythScore}/8
+                </div>
+                <div className="text-[10px] text-[hsl(228_20%_50%)] font-semibold leading-tight">Myth Score</div>
+              </>
+            ) : (
+              <div className="text-xs text-[hsl(228_20%_65%)] font-semibold mt-1">Brain Score</div>
+            )}
+          </div>
+
+          <div
+            onClick={handleTipsTap}
+            className="bg-[hsl(228_40%_12%)] rounded-xl p-3 border border-[hsl(228_30%_20%)] cursor-pointer hover:border-[#FF69B4]/60 hover:bg-[hsl(228_40%_16%)] transition-all duration-200"
+          >
+            <div className="text-2xl">🧩</div>
+            <div className="text-xs text-[hsl(228_20%_65%)] font-semibold mt-1">Brain Tease</div>
+          </div>
         </div>
 
         {showCheeky && (
