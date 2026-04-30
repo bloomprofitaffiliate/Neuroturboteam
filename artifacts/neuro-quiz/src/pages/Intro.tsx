@@ -7,12 +7,12 @@ interface IntroProps {
 }
 
 const cheekLines = [
-  "You don't have a Ferrari brain yet — complete your scan first! 🏎️",
-  "No Ferrari brain, no custom tips. That's the deal. Do your scan! 🏎️",
-  "A Ferrari brain is EARNED, not given. Get scanning! 🏎️",
-  "The tips are for Ferrari brains only. Find out if you've got one first! 🏎️",
-  "You could BE a Ferrari brain... but first you have to take the quiz! 🏎️",
-  "Custom tips? For which brain type?! We haven't scanned you yet! Do the quiz! 🏎️",
+  { intro: "Okay FINE, you little cheat 👀 Here's one sneaky tip on the house:", tip: "Drink water before your morning coffee — your brain is 73% water and dehydration tanks your focus before you even hit your inbox." },
+  { intro: "Sneaking past the gate, are we? 👀 Alright, here's your reward:", tip: "A 10-minute walk after eating sharpens your brain for hours. Glucose spike without the crash. Science said so, not me." },
+  { intro: "Oh you're THAT person 👀 Fine. One tip. Then go do the quiz:", tip: "Cold water on your face or wrists before a big task fires up your prefrontal cortex — that's your focus HQ. It actually works." },
+  { intro: "Caught you cheating! 👀 But since you're here, here's a freebie:", tip: "Humming for 60 seconds vibrates your vagus nerve and drops stress hormones almost instantly. Weird but devastatingly effective." },
+  { intro: "You absolute cheeky thing 👀 Go on then, take your tip:", tip: "Write down your 3 tasks for the day before you check your phone. Your brain will laser in on them instead of reacting all day." },
+  { intro: "Bypassing the quiz like a pro 👀 Your reward:", tip: "Chewing gum during a boring task increases alertness by up to 20%. Your brain thinks something important is about to happen. Works every time." },
 ];
 
 export function Intro({ onStart, onLockedTips }: IntroProps) {
@@ -70,14 +70,20 @@ export function Intro({ onStart, onLockedTips }: IntroProps) {
               </div>
             </div>
             <p className="text-[#FF69B4] font-black text-sm uppercase tracking-widest mt-3 mb-1">
-              🏎️ Ferrari brain? Prove it first!
+              👀 Sneaky peek unlocked!
             </p>
-            <p className="text-white font-black text-base leading-snug">{cheekLine}</p>
+            <p className="text-[hsl(228_20%_65%)] text-sm mb-2">{cheekLine.intro}</p>
+            <p className="text-white font-black text-base leading-snug bg-[hsl(228_40%_8%)] rounded-xl p-3 border border-[#FF69B4]/20">
+              {cheekLine.tip}
+            </p>
+            <p className="text-[#FF69B4] text-xs font-bold mt-2">
+              Want 5 custom tips made for YOUR brain type? Do the quiz! 🏎️
+            </p>
             <button
               onClick={() => setShowCheeky(false)}
               className="mt-3 text-[hsl(228_20%_50%)] text-xs font-bold hover:text-white transition-colors"
             >
-              Fine, fine... I'll do the quiz 🙄
+              Okay fine, I'll do the quiz 🙄
             </button>
           </div>
         )}
