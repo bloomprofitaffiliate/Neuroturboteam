@@ -35,6 +35,13 @@ export function EmailGate({ totalScore, onSubmit }: EmailGateProps) {
     setSpinning(true);
     let count = 0;
     const total = 14;
+
+    fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name.trim(), email: email.trim() }),
+    }).catch(() => {});
+
     intervalRef.current = setInterval(() => {
       const rand = rouletteBrains[Math.floor(Math.random() * rouletteBrains.length)];
       setSpinBrain(rand);
