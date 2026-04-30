@@ -72,16 +72,14 @@ export function Intro({ onStart, onLockedTips }: IntroProps) {
             <p className="text-[#FF69B4] font-black text-sm uppercase tracking-widest mt-3 mb-1">
               👀 Sneaky peek unlocked!
             </p>
-            <p className="text-[hsl(228_20%_65%)] text-sm mb-2">{cheekLine.intro}</p>
-            <p className="text-white font-black text-base leading-snug bg-[hsl(228_40%_8%)] rounded-xl p-3 border border-[#FF69B4]/20">
+            <p className="text-sm font-black mb-2" style={{ color: "#FF6600" }}>{cheekLine.intro}</p>
+            <p className="text-white font-black text-base leading-snug bg-[hsl(228_40%_8%)] rounded-xl p-3 border border-[#FF6600]/30">
               {cheekLine.tip}
-            </p>
-            <p className="text-[#FF69B4] text-xs font-bold mt-2">
-              Want 5 custom tips made for YOUR brain type? Do the quiz! 🏎️
             </p>
             <button
               onClick={() => setShowCheeky(false)}
-              className="mt-3 text-[hsl(228_20%_50%)] text-xs font-bold hover:text-white transition-colors"
+              className="mt-3 text-xs font-black transition-colors hover:opacity-80"
+              style={{ color: "#FF6600" }}
             >
               Okay fine, I'll do the quiz 🙄
             </button>
