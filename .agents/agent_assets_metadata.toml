@@ -83,3 +83,9 @@ id = "pSfqPh4bO7pwSYdxZ00B-"
 uri = "file://email-sequence/neuro-turbo-15-day-emails.md"
 type = "text"
 title = "Neuro-Turbo 15-Day Email Sequence"
+
+[[outputs]]
+id = "vtoHXrCRrjt9UZd_o2S14"
+uri = "file://email-sequence/mailerlite-setup-instructions.md"
+type = "text"
+title = "MailerLite Setup Instructions"
