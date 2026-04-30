@@ -7,12 +7,12 @@ interface IntroProps {
 }
 
 const cheekLines = [
-  "Oh, you think tips just fall from the sky?! 😤 Finish the quiz first, then we'll talk.",
-  "Nice try, sneaky brain! 🕵️ The tips are locked until you complete your scan.",
-  "Mmm, no. Absolutely not. Do the quiz. THEN the tips. That's the deal. 🙅",
-  "The tips are in another castle, Mario. 🏰 Start the quiz to unlock them!",
-  "*taps forehead* These tips? Not for pre-quiz brains. Do your scan first. 🧠",
-  "You haven't even started the quiz yet and you want the tips?! Bold. I respect it. But no. 😂",
+  "You don't have a Ferrari brain yet — complete your scan first! 🏎️",
+  "No Ferrari brain, no custom tips. That's the deal. Do your scan! 🏎️",
+  "A Ferrari brain is EARNED, not given. Get scanning! 🏎️",
+  "The tips are for Ferrari brains only. Find out if you've got one first! 🏎️",
+  "You could BE a Ferrari brain... but first you have to take the quiz! 🏎️",
+  "Custom tips? For which brain type?! We haven't scanned you yet! Do the quiz! 🏎️",
 ];
 
 export function Intro({ onStart, onLockedTips }: IntroProps) {
@@ -66,17 +66,11 @@ export function Intro({ onStart, onLockedTips }: IntroProps) {
           <div className="bg-[hsl(228_40%_12%)] rounded-2xl p-5 border-2 border-[#FF69B4]/40 slide-in">
             <div className="flex justify-center mb-1 relative">
               <div style={{ transform: "rotate(-8deg)" }}>
-                <BrainMascot type="turbo" size={80} />
+                <BrainMascot type="ferrari" size={90} />
               </div>
-              <span
-                className="absolute text-3xl select-none pointer-events-none"
-                style={{ bottom: -6, right: "calc(50% - 52px)", transform: "rotate(15deg)" }}
-              >
-                😛
-              </span>
             </div>
             <p className="text-[#FF69B4] font-black text-sm uppercase tracking-widest mt-3 mb-1">
-              Start your brain up first! 😛
+              🏎️ Ferrari brain? Prove it first!
             </p>
             <p className="text-white font-black text-base leading-snug">{cheekLine}</p>
             <button
