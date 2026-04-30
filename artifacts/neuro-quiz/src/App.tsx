@@ -55,7 +55,7 @@ function App() {
         />
       )}
       {stage === "mythbuster" && (
-        <BrainMythBuster userName={userName} onDone={() => setStage("results")} />
+        <BrainMythBuster userName={userName} onDone={handleRetake} />
       )}
       {stage === "tips" && (
         <CustomTips

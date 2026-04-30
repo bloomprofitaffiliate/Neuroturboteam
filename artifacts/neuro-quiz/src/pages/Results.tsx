@@ -86,7 +86,9 @@ export function Results({ totalScore, userName, onRetake, onMythBuster, onCustom
           style={{ borderColor: `${result.color}50`, background: `${result.color}12` }}
         >
           <div className="flex justify-center">
-            <BrainMascot type={result.ctaMascot} size={110} />
+            <div className="cursor-pointer brain-hover-generic">
+              <BrainMascot type={result.ctaMascot} size={110} />
+            </div>
           </div>
           <p className="text-white font-black text-lg leading-snug">
             {result.ctaHeadline}
@@ -99,8 +101,8 @@ export function Results({ totalScore, userName, onRetake, onMythBuster, onCustom
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-clickbank-cta"
-            className="block w-full text-white font-black text-base py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-            style={{ background: result.color, color: result.color === "#B9F6CA" ? "#0B0E14" : "white" }}
+            className="block w-full font-black text-base py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: "#39FF14", color: "#0B0E14" }}
           >
             Unlock the Rest Here →
           </a>
@@ -142,15 +144,6 @@ export function Results({ totalScore, userName, onRetake, onMythBuster, onCustom
             })}
           </div>
         </div>
-
-        <button
-          data-testid="button-custom-tips"
-          onClick={onCustomTips}
-          className="w-full font-black text-base py-4 rounded-2xl border-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style={{ borderColor: result.color, color: result.color, background: `${result.color}12` }}
-        >
-          🎯 Get My Custom Tips
-        </button>
 
         <button
           data-testid="button-mythbuster"
