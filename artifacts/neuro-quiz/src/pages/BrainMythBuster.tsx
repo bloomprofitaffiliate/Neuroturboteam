@@ -115,6 +115,126 @@ const mythQuestions: MythQuestion[] = [
     correct: "fact",
     explanation: "Being just 1–2% dehydrated is enough to impair focus, memory, and mood. Your brain is about 75% water — so drink up!",
   },
+  {
+    statement: "You can 'catch up' on lost sleep over the weekend and fully restore your brain.",
+    correct: "myth",
+    explanation: "Weekend sleep binges help a little, but they can't fully reverse the cognitive damage from a week of poor sleep. Consistency beats catch-up every time.",
+  },
+  {
+    statement: "Your brain is more active during deep sleep than when you're watching TV.",
+    correct: "fact",
+    explanation: "During deep sleep your brain is furiously consolidating memories, clearing waste, and repairing itself. Passive TV-watching? Much lower brain activity.",
+  },
+  {
+    statement: "Intelligence is fixed — you're either born smart or you're not.",
+    correct: "myth",
+    explanation: "Intelligence is highly malleable. Deliberate practice, learning, sleep, nutrition, and environment can all meaningfully raise your cognitive performance.",
+  },
+  {
+    statement: "Meditation physically thickens parts of your brain's cortex.",
+    correct: "fact",
+    explanation: "Long-term meditators show measurably thicker prefrontal cortex regions — the areas linked to attention, awareness, and emotional regulation. Your brain literally grows.",
+  },
+  {
+    statement: "Humans are the only species that can recognise themselves in a mirror.",
+    correct: "myth",
+    explanation: "Great apes, dolphins, elephants, and even some magpies can pass the mirror self-recognition test. You've got company!",
+  },
+  {
+    statement: "Your brain generates enough electrical power to light a small LED bulb.",
+    correct: "fact",
+    explanation: "The brain produces about 12–25 watts of electricity — enough to power a low-energy LED. You're literally running on electricity!",
+  },
+  {
+    statement: "Alcohol kills brain cells permanently every time you drink.",
+    correct: "myth",
+    explanation: "Moderate drinking doesn't directly kill neurons — it damages the connections (synapses) between them. Heavy long-term drinking is another story, but the odd glass isn't a mass brain-cell massacre.",
+  },
+  {
+    statement: "Your brain processes visual information upside down and flips it for you.",
+    correct: "fact",
+    explanation: "Light hits your retina inverted — your brain automatically flips the image so you see the world right-side up. It's doing this processing trick every single second.",
+  },
+  {
+    statement: "People who speak two languages develop Alzheimer's later than monolinguals.",
+    correct: "fact",
+    explanation: "Research consistently shows bilingualism can delay Alzheimer's onset by 4–5 years. Managing two languages keeps the brain's executive control systems in constant training.",
+  },
+  {
+    statement: "Your memory works like a video recorder — storing events exactly as they happened.",
+    correct: "myth",
+    explanation: "Memory is reconstructive, not reproductive. Every time you recall something, you're partially rewriting it. Eyewitness testimony is notoriously unreliable for exactly this reason.",
+  },
+  {
+    statement: "Laughing activates the same reward circuits in your brain as eating chocolate.",
+    correct: "fact",
+    explanation: "A good laugh triggers dopamine release in the nucleus accumbens — the same pleasure centre activated by food, music, and yes, chocolate.",
+  },
+  {
+    statement: "Your brain has a dedicated area just for recognising faces.",
+    correct: "fact",
+    explanation: "The fusiform face area (FFA) is specialised for face recognition and activates more strongly for faces than any other object. Some people have damage to it and literally can't recognise faces — called prosopagnosia.",
+  },
+  {
+    statement: "Humans have more brain cells than any other species.",
+    correct: "myth",
+    explanation: "An elephant has three times more neurons than a human. What we have is an unusually high density of neurons in the cerebral cortex — that's where our edge comes from.",
+  },
+  {
+    statement: "Cold showers can genuinely improve mood and alertness through brain chemistry.",
+    correct: "fact",
+    explanation: "Cold water immersion triggers a noradrenaline spike in the brain — sometimes up to 300% — which sharpens focus and lifts mood. Uncomfortable but genuinely effective.",
+  },
+  {
+    statement: "Your brain gets tired the same way your muscles do during exercise.",
+    correct: "myth",
+    explanation: "Mental fatigue isn't from neurons running out of fuel — it's largely driven by the buildup of glutamate in synapses, which signals the brain to slow down and preserve accuracy.",
+  },
+  {
+    statement: "Music training in childhood produces lasting structural changes in the brain.",
+    correct: "fact",
+    explanation: "Learning an instrument rewires the brain — musicians show larger corpus callosums, stronger motor cortex, and better auditory processing that persists into adulthood.",
+  },
+  {
+    statement: "Chewing gum improves focus and memory during tasks.",
+    correct: "fact",
+    explanation: "Several studies show chewing increases blood flow to the brain and raises alertness. It's not massive — but it's a real, measurable effect.",
+  },
+  {
+    statement: "The brain feels pain just like the rest of your body.",
+    correct: "myth",
+    explanation: "The brain has no pain receptors whatsoever. Brain surgery can be done while you're fully awake — patients feel no pain from the brain tissue itself, only from the scalp.",
+  },
+  {
+    statement: "Your subconscious brain makes decisions before your conscious mind is aware of them.",
+    correct: "fact",
+    explanation: "The famous Libet experiment showed brain activity preparing a movement up to 500ms before people consciously decided to move. Your brain is often one step ahead of 'you'.",
+  },
+  {
+    statement: "Humans are naturally wired to be night owls or morning larks — it's genetic.",
+    correct: "fact",
+    explanation: "Chronotype (your natural sleep-wake preference) is strongly influenced by genetics. Being a night owl isn't laziness — it's biology. About 40 genes are involved.",
+  },
+  {
+    statement: "You can boost IQ permanently by doing daily crossword puzzles.",
+    correct: "myth",
+    explanation: "Crosswords make you better at crosswords. The skills rarely transfer to other types of intelligence. True brain training requires varied, challenging, novel learning.",
+  },
+  {
+    statement: "Your brain shrinks slightly in volume when you're sleep deprived.",
+    correct: "fact",
+    explanation: "Even short-term sleep deprivation causes measurable reduction in grey matter volume, particularly in areas handling attention and cognition. Sleep really is non-negotiable.",
+  },
+  {
+    statement: "Humans are hardwired to crave stories — it's a brain preference, not just culture.",
+    correct: "fact",
+    explanation: "Narrative activates far more brain regions than plain facts — motor, sensory, emotional, and language areas all light up. Stories are literally how the brain prefers to process and store information.",
+  },
+  {
+    statement: "Playing video games shrinks your attention span.",
+    correct: "myth",
+    explanation: "Action video games can actually improve selective attention, reaction time, and visual processing. The 'video games rot your brain' idea isn't supported by the science.",
+  },
 ];
 
 const scoreResults = [
